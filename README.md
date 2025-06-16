@@ -30,7 +30,7 @@ A full-stack web application prototype designed to streamline the placement proc
 | **Backend**        | Node.js, Express.js                |
 | **Database**       | MySQL                              |
 | **Authentication** | JWT-based Role Authentication      |
-|---------------------------------------------------------|
+
 
 
 ## 🔑 Getting Started
@@ -39,7 +39,7 @@ A full-stack web application prototype designed to streamline the placement proc
 
 ```bash
 
-git clone URL
+git clone https://github.com/nikku1229/Placement-cell.git
 cd placement-cell-system
 
 ```
@@ -80,7 +80,7 @@ npm run dev
 
 ## Result
 
-- Deploy url :-  Url
+- Deploy url :-  https://placement-cell-prototype.vercel.app/
 - And want to check the prototype just login as <br> 
 ----- email id = nitishsharma@satyug.edu.in  <br>
 ----- password = 11118888 
