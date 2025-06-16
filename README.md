@@ -55,12 +55,12 @@ npm install
 
 ### 3. Set Database
 
-PORT=8000
-DB_HOST=localhost
-DB_USER=your_mysql_user
-DB_PASSWORD=your_mysql_password
-DB_NAME=your_mysql_placement_cell_name
-JWT_SECRET=your_jwt_secret
+- PORT=8000
+- DB_HOST=localhost
+- DB_USER=your_mysql_user
+- DB_PASSWORD=your_mysql_password
+- DB_NAME=your_mysql_placement_cell_name
+- JWT_SECRET=your_jwt_secret
 
 ### 4. Set Frontend
 
