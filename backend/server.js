@@ -7,9 +7,11 @@ const db = require("./config/db");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
 const server = express();
-server.use(cors({
-  origin: [process.env.CORS_ORIGIN,process.env.CORS_ORIGIN_LOCAL]
-}));
+server.use(
+  cors({
+    origin: [process.env.CORS_ORIGIN, process.env.CORS_ORIGIN_LOCAL],
+  })
+);
 
 server.use(bodyParser.json());
 server.get("/", (req, res) => {
@@ -41,6 +43,8 @@ server.put("/api/messages/:id", (req, res) => {
 
 // Get all jobs
 server.get("/api/jobs", (req, res) => {
+  const demoJobs = JSON.parse(process.env.DEMO_JOBS || "[]");
+  return res.json(demoJobs);
   db.query("SELECT * FROM jobs", (err, results) => {
     if (err) return res.status(500).send(err);
     res.json(results);

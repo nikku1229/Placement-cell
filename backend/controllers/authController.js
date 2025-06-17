@@ -25,6 +25,25 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
+  if (email === process.env.DEMO_EMAIL_ID || password === process.env.DEMO_PASSWORD) {
+    const token = jwt.sign(
+      { id: 1, role: "student", name: "Nitish Sharma" }, // Dummy values for id and role
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "1h",
+      }
+    );
+    return res.json({
+      token,
+      user: {
+        id: 1,
+        role: "student",
+        name: "Nitish Sharma",
+        email: "nitishsharma@satyug.edu.in",
+      },
+    });
+  }
+
   User.findUserByEmail(email, (error, results) => {
     if (error || results.length === 0) {
       return res.status(401).json({ message: "User not found" });
@@ -37,7 +56,7 @@ exports.login = (req, res) => {
         return res.status(401).json({ message: "Invalid credentials" });
 
       const token = jwt.sign(
-        { id: user.id, role: user.role },
+        { id: user.id, role: user.role, name: user.name },
         process.env.JWT_SECRET,
         {
           expiresIn: "1h",
