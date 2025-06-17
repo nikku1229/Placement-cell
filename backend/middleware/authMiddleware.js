@@ -3,7 +3,6 @@ require("dotenv").config();
 
 const authenticateUser = (req, res, next) => {
   const token = req.header("Authorization");
-  console.log("Token received:", token);
   if (!token) return res.status(401).json({ message: "Access Denied" });
 
   try {
@@ -15,7 +14,6 @@ const authenticateUser = (req, res, next) => {
 
     const verified = jwt.verify(tokenParts[1], process.env.JWT_SECRET);
     req.user = verified;
-    console.log("Verified user:", req.user);
     next();
   } catch (err) {
     console.error("Token verification failed:", err.message);

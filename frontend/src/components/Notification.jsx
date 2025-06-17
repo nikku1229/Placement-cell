@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Notification({ notificationItems=[] }) {
-  console.log(notificationItems);
   
   return (
     <>
