@@ -6,9 +6,13 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const db = require("./config/db");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
-
 const server = express();
-server.use(cors());
+server.use(cors({
+  origin: process.env.CORS_ORIGIN,
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+
 server.use(bodyParser.json());
 server.get("/", (req, res) => {
   res.send("Welcome to the backend server!");
